@@ -1,0 +1,2014 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Tools - Muft Ke Yatri</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Quicksand:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      :root {
+        --primary-color: #4f8cff;
+        --primary-gradient: linear-gradient(90deg, #4f8cff 0%, #00e6d0 100%);
+        --secondary-color: #ffb347;
+        --accent-color: #ff6f91;
+        --background-color: #f6faff;
+        --card-background: #ffffff;
+        --text-color: #222b45;
+        --border-radius: 18px;
+        --box-shadow: 0 4px 24px rgba(79, 140, 255, 0.1);
+        --section-divider: linear-gradient(90deg, #4f8cff 0%, #00e6d0 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        font-family: "Quicksand", "Segoe UI", Tahoma, Geneva, Verdana,
+          sans-serif;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header Styles */
+      .header {
+        background: var(--primary-gradient);
+        color: white;
+        padding: 2.5rem 0 2rem 0;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        border-radius: 0 0 32px 32px;
+        box-shadow: 0 6px 32px rgba(79, 140, 255, 0.1);
+      }
+
+      .header h1 {
+        font-family: "Montserrat", "Quicksand", sans-serif;
+        font-size: 2.7rem;
+        margin-bottom: 0.7rem;
+        letter-spacing: 1px;
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.93;
+      }
+
+      /* Navigation */
+      .tools-nav {
+        background: var(--card-background);
+        padding: 1.2rem 0.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        margin-bottom: 2.5rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .tools-nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 2.2rem;
+        flex-wrap: wrap;
+      }
+
+      .tools-nav a {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 600;
+        padding: 0.6rem 1.3rem;
+        border-radius: 20px;
+        transition: all 0.3s;
+        font-family: "Montserrat", "Quicksand", sans-serif;
+        font-size: 1.08rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .tools-nav a:hover,
+      .tools-nav a.active {
+        background: var(--primary-gradient);
+        color: #fff;
+        box-shadow: 0 2px 8px rgba(79, 140, 255, 0.1);
+      }
+
+      /* Tool Section Styles */
+      .tool-section {
+        background: var(--card-background);
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        padding: 2.2rem 1.5rem 2.5rem 1.5rem;
+        margin-bottom: 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .tool-section:not(:first-child):before {
+        content: "";
+        display: block;
+        height: 6px;
+        width: 100%;
+        background: var(--section-divider);
+        position: absolute;
+        top: -3px;
+        left: 0;
+        border-radius: 8px 8px 0 0;
+        opacity: 0.13;
+      }
+
+      .tool-section h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        font-family: "Montserrat", "Quicksand", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.5px;
+      }
+
+      .tool-section h2 i {
+        color: var(--secondary-color);
+        font-size: 1.3em;
+        filter: drop-shadow(0 2px 6px #ffb34733);
+      }
+
+      /* Packing Checklist */
+      .packing-checklist {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        background: linear-gradient(135deg, #e0eaff 0%, #f8f9fa 100%);
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0, 123, 255, 0.08);
+        padding: 2rem 1rem;
+      }
+
+      .category {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        padding: 1.5rem 1rem;
+        min-width: 220px;
+      }
+
+      .category h3 {
+        color: #007bff;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      .checklist {
+        list-style: none;
+        padding: 0;
+      }
+
+      .checklist li {
+        margin: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        font-size: 1.08rem;
+        background: #f4f8ff;
+        border-radius: 6px;
+        padding: 0.3rem 0.7rem;
+        transition: background 0.2s;
+      }
+
+      .checklist li:hover {
+        background: #e3f0ff;
+      }
+
+      .checklist label {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .checklist input[type="checkbox"] {
+        accent-color: #007bff;
+        width: 18px;
+        height: 18px;
+      }
+
+      /* Destination Explorer */
+      .region-filters {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.5rem 1.5rem;
+        border: none;
+        border-radius: 20px;
+        background: var(--background-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn.active {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .destinations-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 1.5rem;
+      }
+
+      .destination-card {
+        background: linear-gradient(135deg, #f8f9fa 60%, #e0eaff 100%);
+        border-radius: 16px;
+        box-shadow: 0 2px 12px rgba(0, 123, 255, 0.07);
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        min-height: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .destination-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        box-shadow: 0 6px 24px rgba(0, 123, 255, 0.13);
+      }
+
+      .destination-card .emoji {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .destination-card h4 {
+        color: #007bff;
+        margin-bottom: 0.7rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+      }
+
+      .destination-card p {
+        margin: 0.2rem 0;
+        font-size: 1.05rem;
+      }
+
+      /* Currency Converter */
+      .converter-form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .input-group {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+      }
+
+      .input-group input,
+      .input-group select {
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      /* Trip Countdown */
+      .countdown-display {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .countdown-item {
+        text-align: center;
+      }
+
+      .countdown-item span {
+        font-size: 3rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      /* Gallery */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Budget Tracker */
+      .budget-form {
+        background: var(--background-color);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1.5rem;
+      }
+
+      .expense-list {
+        margin: 1.5rem 0;
+      }
+
+      .expense-item {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr auto;
+        gap: 1rem;
+        padding: 1rem;
+        background: #f4f8ff;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+        align-items: center;
+      }
+
+      .delete-expense-btn {
+        background: #ff4d4f;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 0.3rem 0.8rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.2s;
+      }
+
+      .delete-expense-btn:hover {
+        background: #d9363e;
+      }
+
+      .budget-summary {
+        text-align: right;
+      }
+
+      #category-summary {
+        margin-top: 0.7rem;
+        font-size: 1.05rem;
+        color: #007bff;
+      }
+
+      /* Language Cheat Sheet */
+      .language-selector {
+        margin-bottom: 1.5rem;
+      }
+
+      .language-selector select {
+        width: 220px;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        border: 1px solid #b3d1ff;
+        padding: 0.5rem 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .phrases-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+
+      .phrase-item {
+        background: #f4f8ff;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.08rem;
+      }
+
+      /* Interactive Itinerary */
+      .itinerary-controls {
+        background: linear-gradient(135deg, #e0f7ff 0%, #f0f9ff 100%);
+        padding: 2rem;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+      }
+
+      .location-selector {
+        margin-bottom: 1.5rem;
+      }
+
+      .custom-select {
+        width: 100%;
+        max-width: 300px;
+        padding: 0.8rem 1.2rem;
+        border: 2px solid #4f8cff;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        color: #333;
+        background-color: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .custom-select:hover {
+        border-color: #00e6d0;
+        box-shadow: 0 0 10px rgba(79, 140, 255, 0.2);
+      }
+
+      .itinerary-actions {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn-add-day,
+      .btn-save-itinerary {
+        padding: 0.8rem 1.5rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-add-day {
+        background: #4f8cff;
+        color: white;
+      }
+
+      .btn-save-itinerary {
+        background: #00e6d0;
+        color: white;
+      }
+
+      .btn-add-day:hover,
+      .btn-save-itinerary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .itinerary-board {
+        display: flex;
+        gap: 1.5rem;
+        overflow-x: auto;
+        padding: 1rem 0;
+        min-height: 400px;
+      }
+
+      .day-column {
+        min-width: 300px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e0f7ff 100%);
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .day-column:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 123, 255, 0.15);
+      }
+
+      .day-column h4 {
+        color: #007bff;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #4f8cff;
+      }
+
+      .activity-card {
+        background: white;
+        padding: 1.2rem;
+        margin: 0.8rem 0;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        cursor: move;
+        transition: all 0.3s ease;
+      }
+
+      .activity-card:hover {
+        transform: translateX(5px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.1);
+      }
+
+      .activity-card h5 {
+        color: #00e6d0;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .activity-card p {
+        color: #666;
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+
+      /* Scrollbar Styling */
+      .itinerary-board::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .itinerary-board::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+
+      .itinerary-board::-webkit-scrollbar-thumb {
+        background: #4f8cff;
+        border-radius: 4px;
+      }
+
+      .itinerary-board::-webkit-scrollbar-thumb:hover {
+        background: #00e6d0;
+      }
+
+      
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .container {
+          padding: 10px;
+        }
+
+        .tools-nav ul {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .airport-map {
+          grid-template-columns: 1fr;
+        }
+
+        .converter-form {
+          grid-template-columns: 1fr;
+        }
+
+        .countdown-display {
+          gap: 1rem;
+        }
+
+        .countdown-item span {
+          font-size: 2rem;
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tool-section {
+        animation: fadeIn 0.5s ease-out;
+      }
+
+      /* Buttons */
+      .btn,
+      button,
+      .save-plan-btn,
+      .delete-expense-btn {
+        font-family: "Montserrat", "Quicksand", sans-serif;
+        font-weight: 600;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1.3rem;
+        background: var(--primary-gradient);
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(79, 140, 255, 0.1);
+        transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn:hover,
+      button:hover,
+      .save-plan-btn:hover,
+      .delete-expense-btn:hover {
+        background: linear-gradient(90deg, #00e6d0 0%, #4f8cff 100%);
+        color: #fff;
+        transform: translateY(-2px) scale(1.04);
+        box-shadow: 0 4px 16px rgba(0, 230, 208, 0.1);
+      }
+
+      /* Section Dividers */
+      .tool-section:not(:last-child) {
+        margin-bottom: 2.7rem;
+      }
+
+      /* Add a playful font for headings */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Montserrat", "Quicksand", sans-serif;
+      }
+
+      /* Add icon accents to section headers and buttons */
+      .save-plan-btn:before {
+        content: "\f0c7";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        margin-right: 0.5em;
+        color: var(--primary-color);
+      }
+
+      .delete-expense-btn:before {
+        content: "\f2ed";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        margin-right: 0.5em;
+        color: var(--accent-color);
+      }
+
+      /* Add hover effect to cards */
+      .tool-section,
+      .category,
+      .destination-card,
+      .day-card,
+      .expense-item,
+      .phrase-item {
+        transition: box-shadow 0.2s, transform 0.2s;
+      }
+
+      .tool-section:hover,
+      .category:hover,
+      .destination-card:hover,
+      .day-card:hover,
+      .expense-item:hover,
+      .phrase-item:hover {
+        box-shadow: 0 8px 32px rgba(79, 140, 255, 0.13);
+        transform: translateY(-2px) scale(1.01);
+      }
+
+      /* Add a soft gradient background to the page */
+      body {
+        background: linear-gradient(120deg, #f6faff 60%, #e0eaff 100%);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>Travel Tools & Resources</h1>
+        <p>Make your travel planning easier with our interactive tools</p>
+      </div>
+    </header>
+
+    <nav class="tools-nav">
+      <div class="container">
+        <ul>
+          <li><a href="#packing-checklist">Packing List</a></li>
+          <li><a href="#destination-list">Destinations</a></li>
+          <li><a href="#currency-converter">Currency</a></li>
+          <li><a href="#trip-planner">Trip Planner</a></li>
+          <li><a href="#travel-gallery">Gallery</a></li>
+          <li><a href="#budget-tracker">Budget</a></li>
+          <li><a href="#language-cheatsheet">Language</a></li>
+          <li><a href="#interactive-itinerary">Itinerary</a></li>
+          <li><a href="#airport-navigation">Airport</a></li>
+          <li><a href="#trip-moodboard">Moodboard</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- Packing Checklist -->
+      <section id="packing-checklist" class="tool-section">
+        <h2><i class="fas fa-suitcase"></i> Smart Packing Checklist</h2>
+        <div class="packing-checklist">
+          <div class="category">
+            <h3>Essentials</h3>
+            <ul class="checklist">
+              <li>
+                <label
+                  ><input type="checkbox" id="passport" /> Passport/ID</label
+                >
+              </li>
+              <li>
+                <label><input type="checkbox" id="money" /> Money/Cards</label>
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="phone" /> Phone & Charger</label
+                >
+              </li>
+              <li>
+                <label><input type="checkbox" id="meds" /> Medications</label>
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="tickets" /> Tickets/Boarding
+                  Pass</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="travel-insurance" /> Travel
+                  Insurance</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="emergency-contacts" /> Emergency
+                  Contacts</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="powerbank" /> Power Bank</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="adapter" /> Universal
+                  Adapter</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="snacks" /> Snacks/Water
+                  Bottle</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="mask" /> Face
+                  Mask/Sanitizer</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="copies" /> Copies of
+                  Documents</label
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="category">
+            <h3>Clothing</h3>
+            <ul class="checklist">
+              <li>
+                <label><input type="checkbox" id="shirts" /> T-Shirts</label>
+              </li>
+              <li>
+                <label><input type="checkbox" id="pants" /> Pants/Shorts</label>
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="shoes" /> Comfortable Shoes</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="jacket" /> Jacket/Sweater</label
+                >
+              </li>
+              <li>
+                <label><input type="checkbox" id="socks" /> Socks</label>
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="undergarments" />
+                  Undergarments</label
+                >
+              </li>
+              <li>
+                <label><input type="checkbox" id="hat" /> Hat/Cap</label>
+              </li>
+            </ul>
+          </div>
+          <div class="category">
+            <h3>Toiletries</h3>
+            <ul class="checklist">
+              <li>
+                <label
+                  ><input type="checkbox" id="toothbrush" /> Toothbrush</label
+                >
+              </li>
+              <li>
+                <label><input type="checkbox" id="shampoo" /> Shampoo</label>
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="sunscreen" /> Sunscreen</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="firstaid" /> First Aid Kit</label
+                >
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="soap" /> Soap/Body Wash</label
+                >
+              </li>
+              <li>
+                <label><input type="checkbox" id="towel" /> Towel</label>
+              </li>
+              <li>
+                <label
+                  ><input type="checkbox" id="comb" /> Comb/Hairbrush</label
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Destination List -->
+      <section id="destination-list" class="tool-section">
+        <h2><i class="fas fa-globe-asia"></i> Destination Explorer</h2>
+        <div class="region-filters">
+          <button class="filter-btn active" data-region="all">
+            All Regions
+          </button>
+          <button class="filter-btn" data-region="north">North India</button>
+          <button class="filter-btn" data-region="south">South India</button>
+          <button class="filter-btn" data-region="east">East India</button>
+          <button class="filter-btn" data-region="west">West India</button>
+        </div>
+        <div class="destinations-grid">
+          <div class="destination-card" data-region="north">
+            <span class="emoji">🏔️</span>
+            <h4>Manali</h4>
+            <p>
+              <strong>Best Time:</strong> Oct - Feb (snow), Mar - Jun (pleasant
+              weather)
+            </p>
+            <p>
+              <strong>Highlights:</strong> Solang Valley, Rohtang Pass,
+              adventure sports
+            </p>
+            <p>
+              <strong>Tips:</strong> Carry warm clothes, book permits for
+              Rohtang in advance.
+            </p>
+          </div>
+          <div class="destination-card" data-region="north">
+            <span class="emoji">🕉️</span>
+            <h4>Rishikesh</h4>
+            <p><strong>Best Time:</strong> Sep - Nov, Mar - May</p>
+            <p><strong>Highlights:</strong> Yoga, Ganga Aarti, river rafting</p>
+            <p>
+              <strong>Tips:</strong> Try local cafes, respect local customs.
+            </p>
+          </div>
+          <div class="destination-card" data-region="south">
+            <span class="emoji">🏖️</span>
+            <h4>Goa</h4>
+            <p><strong>Best Time:</strong> Nov - Feb</p>
+            <p><strong>Highlights:</strong> Beaches, nightlife, forts</p>
+            <p><strong>Tips:</strong> Rent a scooter, try Goan cuisine.</p>
+          </div>
+          <div class="destination-card" data-region="south">
+            <span class="emoji">🌄</span>
+            <h4>Ooty</h4>
+            <p><strong>Best Time:</strong> Apr - Jun, Sep - Nov</p>
+            <p>
+              <strong>Highlights:</strong> Botanical Gardens, Nilgiri Mountain
+              Railway
+            </p>
+            <p>
+              <strong>Tips:</strong> Carry light woolens, book toy train tickets
+              early.
+            </p>
+          </div>
+          <div class="destination-card" data-region="east">
+            <span class="emoji">🌅</span>
+            <h4>Darjeeling</h4>
+            <p><strong>Best Time:</strong> Mar - May, Sep - Nov</p>
+            <p>
+              <strong>Highlights:</strong> Tea gardens, Tiger Hill sunrise, toy
+              train
+            </p>
+            <p><strong>Tips:</strong> Try local tea, dress in layers.</p>
+          </div>
+          <div class="destination-card" data-region="east">
+            <span class="emoji">🏞️</span>
+            <h4>Shillong</h4>
+            <p><strong>Best Time:</strong> Mar - Jun, Sep - Nov</p>
+            <p>
+              <strong>Highlights:</strong> Waterfalls, living root bridges,
+              music scene
+            </p>
+            <p>
+              <strong>Tips:</strong> Carry rain gear, respect local traditions.
+            </p>
+          </div>
+          <div class="destination-card" data-region="west">
+            <span class="emoji">��</span>
+            <h4>Rajasthan</h4>
+            <p><strong>Best Time:</strong> Oct - Mar</p>
+            <p><strong>Highlights:</strong> Forts, palaces, desert safaris</p>
+            <p><strong>Tips:</strong> Stay hydrated, try local sweets.</p>
+          </div>
+          <div class="destination-card" data-region="west">
+            <span class="emoji">🏝️</span>
+            <h4>Mumbai</h4>
+            <p><strong>Best Time:</strong> Nov - Feb</p>
+            <p>
+              <strong>Highlights:</strong> Gateway of India, Marine Drive,
+              street food
+            </p>
+            <p><strong>Tips:</strong> Use local trains, avoid rush hours.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Currency Converter -->
+      <section id="currency-converter" class="tool-section">
+        <h2><i class="fas fa-exchange-alt"></i> Currency Converter</h2>
+        <div class="converter-form">
+          <div class="input-group">
+            <input type="number" id="amount" placeholder="Enter amount" />
+            <select id="from-currency">
+              <option value="INR">INR</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <input type="number" id="converted-amount" readonly />
+            <select id="to-currency">
+              <option value="USD">USD</option>
+              <option value="INR">INR</option>
+              <option value="EUR">EUR</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trip Countdown & Planner -->
+      <section id="trip-planner" class="tool-section">
+        <h2><i class="fas fa-calendar-alt"></i> Trip Countdown & Planner</h2>
+        <div
+          class="countdown-display"
+          style="
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          "
+        >
+          <div style="margin-bottom: 1rem">
+            <label for="trip-date" style="font-weight: 500; color: #007bff"
+              >Select Your Trip Start Date:
+            </label>
+            <input
+              type="date"
+              id="trip-date"
+              style="
+                padding: 0.4rem 1rem;
+                border-radius: 6px;
+                border: 1px solid #b3d1ff;
+                margin-left: 0.5rem;
+              "
+            />
+          </div>
+          <div class="countdown-timer" style="display: flex; gap: 2.5rem">
+            <div class="countdown-item">
+              <span id="days">00</span>
+              <div>Days</div>
+            </div>
+            <div class="countdown-item">
+              <span id="hours">00</span>
+              <div>Hours</div>
+            </div>
+            <div class="countdown-item">
+              <span id="minutes">00</span>
+              <div>Minutes</div>
+            </div>
+          </div>
+        </div>
+        <div class="daily-planner" style="margin-top: 2rem">
+          <div class="day-card">
+            <h4>Day 1</h4>
+            <textarea
+              placeholder="Add your plans for the day..."
+              class="plan-textarea"
+              data-day="1"
+            ></textarea>
+            <button class="save-plan-btn" data-day="1">Save Plan</button>
+          </div>
+          <div class="day-card">
+            <h4>Day 2</h4>
+            <textarea
+              placeholder="Add your plans for the day..."
+              class="plan-textarea"
+              data-day="2"
+            ></textarea>
+            <button class="save-plan-btn" data-day="2">Save Plan</button>
+          </div>
+          <div class="day-card">
+            <h4>Day 3</h4>
+            <textarea
+              placeholder="Add your plans for the day..."
+              class="plan-textarea"
+              data-day="3"
+            ></textarea>
+            <button class="save-plan-btn" data-day="3">Save Plan</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Travel Gallery -->
+      <section id="travel-gallery" class="tool-section">
+        <h2><i class="fas fa-image"></i> Travel Gallery</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-image="images/varanasi.jpg">
+            <img src="images/varanasi.jpg" alt="Varanasi" />
+          </div>
+          <div class="gallery-item" data-image="images/hampi3.jpeg">
+            <img src="images/hampi3.jpeg" alt="Hampi" />
+          </div>
+          <div class="gallery-item" data-image="images/laxman jhula.webp">
+            <img src="images/laxman jhula.webp" alt="Rishikesh" />
+          </div>
+          <div class="gallery-item" data-image="images/ooty2.jpeg">
+            <img src="images/ooty2.jpeg" alt="Ooty" />
+          </div>
+          <div class="gallery-item" data-image="images/vof.jpg">
+            <img src="images/vof.jpg" alt="Valley of Flowers" />
+          </div>
+          <div class="gallery-item" data-image="images/udaypur3.png">
+            <img src="images/udaypur3.png" alt="Udaipur" />
+          </div>
+          <div class="gallery-item" data-image="images/darjeeling.jpg">
+            <img src="images/darjeeling.jpg" alt="Darjeeling" />
+          </div>
+          <div class="gallery-item" data-image="images/shillong.jpg">
+            <img src="images/shillong.jpg" alt="Shillong" />
+          </div>
+          <div class="gallery-item" data-image="images/mumbai.jpg">
+            <img src="images/mumbai.jpg" alt="Mumbai" />
+          </div>
+          <div class="gallery-item" data-image="images/rajasthan.jpg">
+            <img src="images/rajasthan.jpg" alt="Rajasthan" />
+          </div>
+        </div>
+        <div id="gallery-modal" class="modal">
+          <span class="close-modal">&times;</span>
+          <img class="modal-content" id="modal-image" />
+        </div>
+      </section>
+
+      <!-- Budget Tracker -->
+      <section id="budget-tracker" class="tool-section">
+        <h2><i class="fas fa-wallet"></i> Budget Tracker</h2>
+        <div class="budget-form">
+          <div class="input-group">
+            <input type="text" id="expense-name" placeholder="Expense name" />
+            <input type="number" id="expense-amount" placeholder="Amount" />
+            <select id="expense-category">
+              <option value="accommodation">Accommodation</option>
+              <option value="food">Food</option>
+              <option value="transport">Transport</option>
+              <option value="activities">Activities</option>
+              <option value="shopping">Shopping</option>
+              <option value="misc">Miscellaneous</option>
+            </select>
+            <select id="expense-frequency">
+              <option value="once">One-time</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+            </select>
+            <button id="add-expense" class="btn">
+              <i class="fas fa-plus"></i> Add
+            </button>
+            <button
+              id="export-csv"
+              class="btn"
+              style="background: var(--secondary-color); color: #fff"
+            >
+              <i class="fas fa-file-csv"></i> Export CSV
+            </button>
+          </div>
+        </div>
+        <div class="expense-list">
+          <!-- Expenses will be added here dynamically -->
+        </div>
+        <div class="budget-summary">
+          <h4>Total Budget: ₹<span id="total-budget">0</span></h4>
+          <div id="category-summary"></div>
+          <canvas
+            id="budget-pie"
+            width="320"
+            height="180"
+            style="margin-top: 1rem"
+          ></canvas>
+        </div>
+      </section>
+
+      <!-- Language Cheat Sheet -->
+      <section id="language-cheatsheet" class="tool-section">
+        <h2><i class="fas fa-language"></i> Language Cheat Sheet</h2>
+        <div class="language-selector">
+          <select id="language-select">
+            <option value="hindi">Hindi</option>
+            <option value="tamil">Tamil</option>
+            <option value="bengali">Bengali</option>
+            <option value="marathi">Marathi</option>
+            <option value="gujarati">Gujarati</option>
+            <option value="punjabi">Punjabi</option>
+            <option value="malayalam">Malayalam</option>
+            <option value="kannada">Kannada</option>
+            <option value="oriya">Odia</option>
+            <option value="telugu">Telugu</option>
+            <option value="urdu">Urdu</option>
+          </select>
+        </div>
+        <div class="phrases-container">
+          <!-- Phrases will be loaded dynamically -->
+        </div>
+      </section>
+
+      <!-- Interactive Itinerary -->
+      <section id="interactive-itinerary" class="tool-section">
+        <h2><i class="fas fa-route"></i> Interactive Itinerary</h2>
+        <div class="itinerary-controls">
+          <div class="location-selector">
+            <label
+              for="itinerary-location"
+              style="font-weight: 500; color: #007bff"
+            >
+              Choose Your Dream Destination:
+            </label>
+            <select id="itinerary-location" class="custom-select">
+              <option value="manali">Manali</option>
+              <option value="goa">Goa</option>
+              <option value="udaipur">Udaipur</option>
+              <option value="ooty">Ooty</option>
+              <option value="rishikesh">Rishikesh</option>
+              <option value="mumbai">Mumbai</option>
+              <option value="darjeeling">Darjeeling</option>
+              <option value="shillong">Shillong</option>
+              <option value="varanasi">Varanasi</option>
+              <option value="hampi">Hampi</option>
+            </select>
+          </div>
+          <div class="itinerary-actions">
+            <button class="btn-add-day" id="add-day-btn">
+              <i class="fas fa-plus"></i> Add Day
+            </button>
+            <button class="btn-save-itinerary" id="save-itinerary-btn">
+              <i class="fas fa-save"></i> Save Itinerary
+            </button>
+          </div>
+        </div>
+        <div class="itinerary-board" id="itinerary-board">
+          <!-- Itinerary days/activities will be loaded here -->
+        </div>
+      </section>
+
+            <!-- Stickers will be placed here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      console.log("Script started executing.");
+      // Packing Checklist
+      document
+        .querySelectorAll('.checklist input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.addEventListener("change", function () {
+            localStorage.setItem(this.id, this.checked);
+          });
+        });
+
+      // Load saved checklist items
+      document
+        .querySelectorAll('.checklist input[type="checkbox"]')
+        .forEach((checkbox) => {
+          checkbox.checked = localStorage.getItem(checkbox.id) === "true";
+        });
+
+      // Destination List Filtering
+      document.querySelectorAll(".filter-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".filter-btn")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+          const region = this.dataset.region;
+          document.querySelectorAll(".destination-card").forEach((card) => {
+            card.style.display =
+              region === "all" || card.dataset.region === region
+                ? "block"
+                : "none";
+          });
+        });
+      });
+
+      // Currency Converter
+      const rates = {
+        INR: { USD: 0.012, EUR: 0.011 },
+        USD: { INR: 83.33, EUR: 0.92 },
+        EUR: { INR: 90.48, USD: 1.09 },
+      };
+
+      document.getElementById("amount").addEventListener("input", function () {
+        const amount = parseFloat(this.value) || 0;
+        const fromCurrency = document.getElementById("from-currency").value;
+        const toCurrency = document.getElementById("to-currency").value;
+        const converted = amount * rates[fromCurrency][toCurrency];
+        document.getElementById("converted-amount").value =
+          converted.toFixed(2);
+      });
+
+      // Trip Countdown & Planner: Date Picker, Save Plans
+      const tripDateInput = document.getElementById("trip-date");
+      const defaultTripDate =
+        localStorage.getItem("tripDate") ||
+        new Date().toISOString().split("T")[0];
+      tripDateInput.value = defaultTripDate;
+
+      function updateCountdown() {
+        const tripDate = new Date(tripDateInput.value).getTime();
+        const now = new Date().getTime();
+        const distance = tripDate - now;
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById("days").textContent = String(days).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("hours").textContent = String(hours).padStart(
+          2,
+          "0"
+        );
+        document.getElementById("minutes").textContent = String(
+          minutes
+        ).padStart(2, "0");
+      }
+      tripDateInput.addEventListener("change", function () {
+        localStorage.setItem("tripDate", this.value);
+        updateCountdown();
+      });
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // Save/Load daily plans
+      [1, 2, 3].forEach((day) => {
+        const textarea = document.querySelector(
+          `.plan-textarea[data-day="${day}"]`
+        );
+        const btn = document.querySelector(`.save-plan-btn[data-day="${day}"]`);
+        textarea.value = localStorage.getItem(`planDay${day}`) || "";
+        btn.addEventListener("click", () => {
+          localStorage.setItem(`planDay${day}`, textarea.value);
+          btn.textContent = "Saved!";
+          setTimeout(() => {
+            btn.textContent = "Save Plan";
+          }, 1200);
+        });
+      });
+
+      // Budget Tracker: Delete & Category Summary
+      let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+      let totalBudget = 0;
+      function updateExpenseList() {
+        const list = document.querySelector(".expense-list");
+        list.innerHTML = expenses
+          .map(
+            (expense, idx) => `
+          <div class="expense-item">
+            <span>${expense.name}</span>
+            <span>₹${expense.amount}</span>
+            <span>${expense.category}</span>
+            <button class="delete-expense-btn" data-idx="${idx}">Delete</button>
+          </div>
+        `
+          )
+          .join("");
+        document.querySelectorAll(".delete-expense-btn").forEach((btn) => {
+          btn.onclick = function () {
+            expenses.splice(+this.dataset.idx, 1);
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+            updateExpenseList();
+            updateTotalBudget();
+            updateCategorySummary();
+          };
+        });
+      }
+      function updateTotalBudget() {
+        totalBudget = expenses.reduce((sum, e) => sum + Number(e.amount), 0);
+        document.getElementById("total-budget").textContent =
+          totalBudget.toFixed(2);
+      }
+      function updateCategorySummary() {
+        const summary = {};
+        expenses.forEach((e) => {
+          summary[e.category] = (summary[e.category] || 0) + Number(e.amount);
+        });
+        document.getElementById("category-summary").innerHTML = Object.entries(
+          summary
+        )
+          .map(([cat, amt]) => `<span><b>${cat}:</b> ₹${amt}</span>`)
+          .join(" | ");
+      }
+      document
+        .getElementById("add-expense")
+        .addEventListener("click", function () {
+          const name = document.getElementById("expense-name").value;
+          const amount = parseFloat(
+            document.getElementById("expense-amount").value
+          );
+          const category = document.getElementById("expense-category").value;
+          const frequency = document.getElementById("expense-frequency").value;
+          if (name && amount) {
+            expenses.push({ name, amount, category, frequency });
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+            updateExpenseList();
+            updateTotalBudget();
+            updateCategorySummary();
+            drawPie();
+            clearExpenseForm();
+          }
+        });
+      function clearExpenseForm() {
+        document.getElementById("expense-name").value = "";
+        document.getElementById("expense-amount").value = "";
+      }
+      updateExpenseList();
+      updateTotalBudget();
+      updateCategorySummary();
+
+      // Budget Tracker: Pie Chart, Export CSV, Recurring
+      function drawPie() {
+        const ctx = document.getElementById("budget-pie").getContext("2d");
+        if (window.budgetPieChart) window.budgetPieChart.destroy();
+        const summary = {};
+        expenses.forEach((e) => {
+          summary[e.category] = (summary[e.category] || 0) + Number(e.amount);
+        });
+        window.budgetPieChart = new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: Object.keys(summary),
+            datasets: [
+              {
+                data: Object.values(summary),
+                backgroundColor: [
+                  "#4f8cff",
+                  "#ffb347",
+                  "#ff6f91",
+                  "#00e6d0",
+                  "#a3a1fb",
+                  "#f6c90e",
+                ],
+              },
+            ],
+          },
+          options: {
+            responsive: false,
+            plugins: { legend: { position: "bottom" } },
+          },
+        });
+      }
+      document.getElementById("export-csv").onclick = function () {
+        let csv = "Name,Amount,Category,Frequency\n";
+        expenses.forEach((e) => {
+          csv += `${e.name},${e.amount},${e.category},${e.frequency}\n`;
+        });
+        const blob = new Blob([csv], { type: "text/csv" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "expenses.csv";
+        a.click();
+        URL.revokeObjectURL(url);
+      };
+
+      // Language Cheat Sheet: More Phrases
+      const phrases = {
+        hindi: {
+          hello: "नमस्ते",
+          thank_you: "धन्यवाद",
+          good_morning: "शुभ प्रभात",
+          how_are_you: "कैसे हो?",
+          help: "मदद करें",
+          where_is: "यह कहाँ है?",
+          how_much: "कितना है?",
+          bathroom: "शौचालय कहाँ है?",
+          food: "खाना",
+          water: "पानी",
+          train_station: "रेलवे स्टेशन कहाँ है?",
+        },
+        tamil: {
+          hello: "வணக்கம்",
+          thank_you: "நன்றி",
+          good_morning: "காலை வணக்கம்",
+          how_are_you: "நீங்கள் எப்படி இருக்கிறீர்கள்?",
+          help: "உதவி",
+          where_is: "இது எங்கே?",
+          how_much: "எவ்வளவு?",
+          bathroom: "கழிப்பறை எங்கே?",
+          food: "சாப்பாடு",
+          water: "தண்ணீர்",
+          train_station: "ரயில் நிலையம் எங்கே?",
+        },
+        bengali: {
+          hello: "নমস্কার",
+          thank_you: "ধন্যবাদ",
+          good_morning: "সুপ্রভাত",
+          how_are_you: "কেমন আছো?",
+          help: "সাহায্য করুন",
+          where_is: "এটা কোথায়?",
+          how_much: "কত?",
+          bathroom: "বাথরুম কোথায়?",
+          food: "খাবার",
+          water: "পাণি",
+          train_station: "রেলস্টেশন কোথায়?",
+        },
+        marathi: {
+          hello: "नमस्कार",
+          thank_you: "धन्यवाद",
+          good_morning: "शुभ प्रभात",
+          how_are_you: "कसे आहात?",
+          help: "मदत करा",
+          where_is: "हे कुठे आहे?",
+          how_much: "किती?",
+          bathroom: "प्रसाधनगृह कुठे आहे?",
+          food: "जेवण",
+          water: "पाणी",
+          train_station: "रेल्वे स्थानक कुठे आहे?",
+        },
+        gujarati: {
+          hello: "નમસ્તે",
+          thank_you: "આભાર",
+          good_morning: "શુભ સવાર",
+          how_are_you: "કેમ છો?",
+          help: "મદદ કરો",
+          where_is: "આ ક્યાં છે?",
+          how_much: "કેટલું?",
+          bathroom: "બાથરૂમ ક્યાં છે?",
+          food: "ખોરાક",
+          water: "પાણી",
+          train_station: "રેલવે સ્ટેશન ક્યાં છે?",
+        },
+        punjabi: {
+          hello: "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",
+          thank_you: "ਧੰਨਵਾਦ",
+          good_morning: "ਸ਼ੁਭ ਸਵੇਰ",
+          how_are_you: "ਤੁਸੀਂ ਕਿਵੇਂ ਹੋ?",
+          help: "ਮਦਦ ਕਰੋ",
+          where_is: "ਇਹ ਕਿੱਥੇ ਹੈ?",
+          how_much: "ਕਿੰਨਾ?",
+          bathroom: "ਬਾਥਰੂਮ ਕਿੱਥੇ ਹੈ?",
+          food: "ਭੋજਨ",
+          water: "ਪਾણੀ",
+          train_station: "ਰੇਲਵੇ ਸਟੇਸ਼ਨ ਕਿੱਥੇ ਹੈ?",
+        },
+        malayalam: {
+          hello: "നമസ്കാരം",
+          thank_you: "നന്ദി",
+          good_morning: "സുപ്രഭാതം",
+          how_are_you: "സുഖമാണോ?",
+          help: "സഹായിക്കുക",
+          where_is: "ഇത് എവിടെയാണ്?",
+          how_much: "എത്ര?",
+          bathroom: "കഴുകിടം എവിടെയാണ്?",
+          food: "ഭക്ഷണം",
+          water: "വെള്ളം",
+          train_station: "റെയിൽവേ സ്റ്റേഷൻ എവിടെയാണ്?",
+        },
+        kannada: {
+          hello: "ನಮಸ್ಕಾರ",
+          thank_you: "ಧನ್ಯವಾದಗಳು",
+          good_morning: "ಶುಭೋದಯ",
+          how_are_you: "ಹೇಗಿದ್ದೀರಾ?",
+          help: "ಸಹಾಯ ಮಾಡಿ",
+          where_is: "ಇದು ಎಲ್ಲಿದೆ?",
+          how_much: "ಎಷ್ಟು?",
+          bathroom: "ಬಾತ್ ರೂಮ್ ಎಲ್ಲಿದೆ?",
+          food: "ಆಹಾರ",
+          water: "ನೀರು",
+          train_station: "ರೈಲು ನಿಲ್ದಾಣ ಎಲ್ಲಿದೆ?",
+        },
+        oriya: {
+          hello: "ନମସ୍କାର",
+          thank_you: "ଧନ୍ୟବାଦ",
+          good_morning: "ଶୁଭ ସକାଳ",
+          how_are_you: "କେମିତି ଅଛନ୍ତି?",
+          help: "ସାହାଯ୍ୟ କରନ୍ତୁ",
+          where_is: "ଏହା କେଉଁଠି?",
+          how_much: "କେତେ?",
+          bathroom: "ବାଥରୁମ କେଉଁଠି?",
+          food: "ଖାଦ୍ୟ",
+          water: "ପାଣି",
+          train_station: "ରେଲୱେ ଷ୍ଟେସନ୍ କେଉଁଠି?",
+        },
+        telugu: {
+          hello: "నమస్తే",
+          thank_you: "ధన్యవాదాలు",
+          good_morning: "శుభోదయం",
+          how_are_you: "ఎలా ఉన్నారు?",
+          help: "సహాయం చేయండి",
+          where_is: "ఇది ఎక్కడ ఉంది?",
+          how_much: "ఎంత?",
+          bathroom: "బాత్రూమ్ ఎక్కడ?",
+          food: "ఆహారం",
+          water: "నీరు",
+          train_station: "రైల్వే స్టేషన్ ఎక్కడ?",
+        },
+        urdu: {
+          hello: "سلام",
+          thank_you: "شکریہ",
+          good_morning: "صبح بخیر",
+          how_are_you: "آپ کیسے ہیں؟",
+          help: "مدد کریں",
+          where_is: "یہ کہاں ہے؟",
+          how_much: "کتنا ہے؟",
+          bathroom: "بیت الخلا کہاں ہے؟",
+          food: "کھانا",
+          water: "پانی",
+          train_station: "ریلوے اسٹیشن کہاں ہے؟",
+        },
+      };
+      function renderPhrases(lang) {
+        const container = document.querySelector(".phrases-container");
+        container.innerHTML = Object.entries(phrases[lang] || {})
+          .map(
+            ([key, value]) => `
+          <div class="phrase-item">
+            <span>${key
+              .replace(/_/g, " ")
+              .replace(/\b\w/g, (l) => l.toUpperCase())}:</span>
+            <span>${value}</span>
+          </div>
+        `
+          )
+          .join("");
+      }
+      document
+        .getElementById("language-select")
+        .addEventListener("change", function () {
+          renderPhrases(this.value);
+        });
+      renderPhrases(document.getElementById("language-select").value);
+
+      // Gallery Modal
+      document.querySelectorAll(".gallery-item").forEach((item) => {
+        item.addEventListener("click", function () {
+          const modal = document.getElementById("gallery-modal");
+          const modalImg = document.getElementById("modal-image");
+          modal.style.display = "block";
+          modalImg.src = this.dataset.image;
+        });
+      });
+
+      document
+        .querySelector(".close-modal")
+        .addEventListener("click", function () {
+          document.getElementById("gallery-modal").style.display = "none";
+        });
+
+      // Airport Navigation: Gates, Amenities, Nearest Railway
+      const airportData = {
+        T1: {
+          gates: ["A1", "A2", "A3", "A4"],
+          amenities: ["Free WiFi", "Food Court", "Luggage Storage", "ATM"],
+          nearestRailway:
+            "Manali: Joginder Nagar Railway Station (143 km)\nGoa: Madgaon Railway Station (38 km)\nUdaipur: Udaipur City Railway Station (22 km)",
+        },
+        T2: {
+          gates: ["B1", "B2", "B3", "B4"],
+          amenities: [
+            "Lounge",
+            "Duty Free",
+            "Kids Play Area",
+            "Medical Center",
+          ],
+          nearestRailway:
+            "Ooty: Mettupalayam Railway Station (47 km)\nRishikesh: Haridwar Junction (21 km)\nMumbai: Mumbai Central (18 km)",
+        },
+        T3: {
+          gates: ["C1", "C2", "C3", "C4"],
+          amenities: ["Spa", "Currency Exchange", "Book Store", "Lost & Found"],
+          nearestRailway:
+            "Darjeeling: New Jalpaiguri (70 km)\nShillong: Guwahati Railway Station (105 km)\nRajasthan: Jaipur Junction (12 km)",
+        },
+      };
+      function renderAirport(term) {
+        const gates = airportData[term].gates;
+        const amenities = airportData[term].amenities;
+        const nearest = airportData[term].nearestRailway;
+        document.querySelector(".gates-container").innerHTML = gates
+          .map(
+            (g) =>
+              `<span style="display:inline-block;background:#e0eaff;color:#4f8cff;padding:0.5em 1em;margin:0.3em;border-radius:8px;font-weight:600;">Gate ${g}</span>`
+          )
+          .join(" ");
+        document.getElementById(
+          "terminal-amenities"
+        ).innerHTML = `<b>Amenities:</b> ${amenities.join(", ")}`;
+        document.getElementById(
+          "nearest-railway"
+        ).innerHTML = `<b>Nearest Railway Stations:</b><br>${nearest.replace(
+          /\\n/g,
+          "<br>"
+        )}`;
+      }
+      document.querySelectorAll(".terminal-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          document
+            .querySelectorAll(".terminal-btn")
+            .forEach((b) => b.classList.remove("active"));
+          this.classList.add("active");
+          renderAirport(this.dataset.terminal);
+        });
+      });
+      renderAirport("T1");
+      document
+        .getElementById("gate-search")
+        .addEventListener("input", function () {
+          const val = this.value.toUpperCase();
+          const term = document.querySelector(".terminal-btn.active").dataset
+            .terminal;
+          const gates = airportData[term].gates.filter((g) => g.includes(val));
+          document.querySelector(".gates-container").innerHTML = gates
+            .map(
+              (g) =>
+                `<span style="display:inline-block;background:#e0eaff;color:#4f8cff;padding:0.5em 1em;margin:0.3em;border-radius:8px;font-weight:600;">Gate ${g}</span>`
+            )
+            .join(" ");
+        });
+
+      // Interactive Itinerary: Location-based
+      const itineraries = {
+        manali: [
+          {
+            day: 1,
+            activities: [
+              {
+                time: "Morning",
+                desc: "Arrive in Manali, check-in, local market walk",
+              },
+              { time: "Afternoon", desc: "Visit Hadimba Temple & Mall Road" },
+              { time: "Evening", desc: "Café hopping, relax at hotel" },
+            ],
+          },
+          {
+            day: 2,
+            activities: [
+              { time: "Morning", desc: "Solang Valley adventure sports" },
+              { time: "Afternoon", desc: "Rohtang Pass excursion" },
+              { time: "Evening", desc: "Hot springs at Vashisht" },
+            ],
+          },
+          {
+            day: 3,
+            activities: [
+              { time: "Morning", desc: "Naggar Castle & Art Gallery" },
+              { time: "Afternoon", desc: "Local shopping, depart" },
+            ],
+          },
+        ],
+        goa: [
+          {
+            day: 1,
+            activities: [
+              { time: "Morning", desc: "Arrive, check-in, relax at beach" },
+              { time: "Afternoon", desc: "Explore Fort Aguada" },
+              { time: "Evening", desc: "Beach shack dinner" },
+            ],
+          },
+          {
+            day: 2,
+            activities: [
+              { time: "Morning", desc: "Water sports at Baga Beach" },
+              { time: "Afternoon", desc: "Old Goa churches" },
+              { time: "Evening", desc: "Night market" },
+            ],
+          },
+          {
+            day: 3,
+            activities: [
+              { time: "Morning", desc: "Dudhsagar Falls trip" },
+              { time: "Afternoon", desc: "Souvenir shopping, depart" },
+            ],
+          },
+        ],
+        darjeeling: [
+          {
+            day: 1,
+            activities: [
+              { time: "Morning", desc: "Arrive, check-in, visit Mall Road" },
+              { time: "Afternoon", desc: "Tea Garden tour" },
+              { time: "Evening", desc: "Local market exploration" },
+            ],
+          },
+          {
+            day: 2,
+            activities: [
+              { time: "Morning", desc: "Tiger Hill sunrise" },
+              { time: "Afternoon", desc: "Batasia Loop & Ghoom Monastery" },
+              { time: "Evening", desc: "Toy train ride" },
+            ],
+          },
+          {
+            day: 3,
+            activities: [
+              {
+                time: "Morning",
+                desc: "Padmaja Naidu Himalayan Zoological Park",
+              },
+              { time: "Afternoon", desc: "Peace Pagoda" },
+              { time: "Evening", desc: "Local food tasting" },
+            ],
+          },
+        ],
+        shillong: [
+          {
+            day: 1,
+            activities: [
+              { time: "Morning", desc: "Arrive, check-in, visit Ward's Lake" },
+              { time: "Afternoon", desc: "Don Bosco Museum" },
+              { time: "Evening", desc: "Police Bazaar" },
+            ],
+          },
+          {
+            day: 2,
+            activities: [
+              { time: "Morning", desc: "Elephant Falls" },
+              { time: "Afternoon", desc: "Shillong Peak" },
+              { time: "Evening", desc: "Local music scene" },
+            ],
+          },
+          {
+            day: 3,
+            activities: [
+              { time: "Morning", desc: "Living Root Bridges" },
+              { time: "Afternoon", desc: "Mawphlang Sacred Forest" },
+              { time: "Evening", desc: "Cultural show" },
+            ],
+          },
+        ],
+        varanasi: [
+          {
+            day: 1,
+            activities: [
+              {
+                time: "Morning",
+                desc: "Arrive, check-in, visit Kashi Vishwanath Temple",
+              },
+              { time: "Afternoon", desc: "Sarnath Buddhist site" },
+              { time: "Evening", desc: "Ganga Aarti ceremony" },
+            ],
+          },
+          {
+            day: 2,
+            activities: [
+              { time: "Morning", desc: "Boat ride on Ganges" },
+              { time: "Afternoon", desc: "Banaras Hindu University" },
+              { time: "Evening", desc: "Local market shopping" },
+            ],
+          },
+          {
+            day: 3,
+            activities: [
+              { time: "Morning", desc: "Morning boat ride" },
+              { time: "Afternoon", desc: "Local food tour" },
+              { time: "Evening", desc: "Evening Aarti" },
+            ],
+          },
+        ],
+        hampi: [
+          {
+            day: 1,
+            activities: [
+              {
+                time: "Morning",
+                desc: "Arrive, check-in, visit Virupaksha Temple",
+              },
+              { time: "Afternoon", desc: "Hampi Bazaar" },
+              { time: "Evening", desc: "Sunset at Hemakuta Hill" },
+            ],
+          },
+          {
+            day: 2,
+            activities: [
+              { time: "Morning", desc: "Vittala Temple complex" },
+              { time: "Afternoon", desc: "Royal Enclosure" },
+              { time: "Evening", desc: "Local market" },
+            ],
+          },
+          {
+            day: 3,
+            activities: [
+              { time: "Morning", desc: "Anegundi village" },
+              { time: "Afternoon", desc: "Sanapur Lake" },
+              { time: "Evening", desc: "Sunset at Matanga Hill" },
+            ],
+          },
+        ],
+      };
+      function renderItinerary(location) {
+        const board = document.getElementById("itinerary-board");
+        const data = itineraries[location];
+        board.innerHTML = data
+          .map(
+            (day) => `
+          <div class="day-column" draggable="true">
+            <h4>Day ${day.day}</h4>
+            ${day.activities
+              .map(
+                (act) => `
+              <div class="activity-card" draggable="true">
+                <h5>${act.time} Activity</h5>
+                <p>${act.desc}</p>
+              </div>
+            `
+              )
+              .join("")}
+          </div>
+        `
+          )
+          .join("");
+      }
+      document
+        .getElementById("itinerary-location")
+        .addEventListener("change", function () {
+          renderItinerary(this.value);
+        });
+      renderItinerary("manali");
+
+      // Add new day functionality
+      document
+        .getElementById("add-day-btn")
+        .addEventListener("click", function () {
+          const board = document.getElementById("itinerary-board");
+          const currentDays = board.children.length;
+          const newDay = document.createElement("div");
+          newDay.className = "day-column";
+          newDay.draggable = true;
+          newDay.innerHTML = `
+          <h4>Day ${currentDays + 1}</h4>
+          <div class="activity-card" draggable="true">
+            <h5>Add Activity</h5>
+            <p>Click to add new activity</p>
+          </div>
+        `;
+          board.appendChild(newDay);
+        });
+
+      // Save itinerary functionality
+      document
+        .getElementById("save-itinerary-btn")
+        .addEventListener("click", function () {
+          const location = document.getElementById("itinerary-location").value;
+          const board = document.getElementById("itinerary-board");
+          const days = Array.from(board.children).map((day) => {
+            const activities = Array.from(
+              day.querySelectorAll(".activity-card")
+            ).map((card) => ({
+              time: card
+                .querySelector("h5")
+                .textContent.replace(" Activity", ""),
+              desc: card.querySelector("p").textContent,
+            }));
+            return {
+              day: parseInt(
+                day.querySelector("h4").textContent.replace("Day ", "")
+              ),
+              activities,
+            };
+          });
+
+          // Save to localStorage
+          localStorage.setItem(`itinerary_${location}`, JSON.stringify(days));
+          alert("Itinerary saved successfully!");
+        });
+
+      // Load saved itinerary
+      function loadSavedItinerary() {
+        const location = document.getElementById("itinerary-location").value;
+        const saved = localStorage.getItem(`itinerary_${location}`);
+        if (saved) {
+          const data = JSON.parse(saved);
+          const board = document.getElementById("itinerary-board");
+          board.innerHTML = data
+            .map(
+              (day) => `
+              <div class="day-column" draggable="true">
+                <h4>Day ${day.day}</h4>
+                ${day.activities
+                  .map(
+                    (act) => `
+                  <div class="activity-card" draggable="true">
+                    <h5>${act.time} Activity</h5>
+                    <p>${act.desc}</p>
+                  </div>
+                `
+                  )
+                  .join("")}
+              </div>
+            `
+            )
+            .join("");
+        } else {
+          renderItinerary(location);
+        }
+      }
+
+      // Initialize with saved itinerary or default
+      loadSavedItinerary();
+      console.log("loadSavedItinerary called after definition.");
+
+      // Ensure itinerary is rendered on initial load even if no saved data
+      const initialLocation =
+        document.getElementById("itinerary-location").value;
+      console.log("Initial location selected: ", initialLocation);
+      if (!localStorage.getItem(`itinerary_${initialLocation}`)) {
+        console.log(
+          "No saved itinerary found for",
+          initialLocation,
+          ", rendering default."
+        );
+        renderItinerary(initialLocation);
+      } else {
+        console.log(
+          "Saved itinerary found for",
+          initialLocation,
+          ", loadSavedItinerary should handle rendering."
+        );
+      }
+
+      // Basic error logging for debugging
+      window.onerror = function (message, source, lineno, colno, error) {
+        console.error(
+          "JavaScript Error:",
+          message,
+          "\nSource:",
+          source,
+          "\nLine:",
+          lineno,
+          ":",
+          colno,
+          "\nError object:",
+          error
+        );
+        return true; // Suppress default error handling
+      };
+
+      console.log("Script finished execution setup.");
+    </script>
+  </body>
+</html>
